@@ -4,15 +4,15 @@
     xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd"
 >
   <TABLES>
-    <TABLE NAME="eledia_multikeys_keys" COMMENT="block_eledia_generate_multikeys table retrofitted from MySQL">
+    <TABLE NAME="block_eledia_generate_multikeys" COMMENT="block_eledia_generate_multikeys table retrofitted from MySQL">
       <FIELDS>
-        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true" ENUM="false" NEXT="course"/>
-        <FIELD NAME="course" TYPE="char" LENGTH="100" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" ENUM="false" PREVIOUS="id" NEXT="code"/>
-        <FIELD NAME="code" TYPE="char" LENGTH="100" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" ENUM="false" PREVIOUS="course" NEXT="user"/>
-        <FIELD NAME="user" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="true" SEQUENCE="false" ENUM="false" PREVIOUS="code" NEXT="mailedto"/>
-        <FIELD NAME="mailedto" TYPE="char" LENGTH="100" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" ENUM="false" PREVIOUS="user" NEXT="timecreated"/>
-        <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="true" SEQUENCE="false" ENUM="false" PREVIOUS="mailedto" NEXT="timeused"/>
-        <FIELD NAME="timeused" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="true" SEQUENCE="false" ENUM="false" PREVIOUS="timecreated"/>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true" NEXT="course"/>
+        <FIELD NAME="course" TYPE="char" LENGTH="100" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" PREVIOUS="id" NEXT="code"/>
+        <FIELD NAME="code" TYPE="char" LENGTH="100" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" PREVIOUS="course" NEXT="user"/>
+        <FIELD NAME="user" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="true" SEQUENCE="false" PREVIOUS="code" NEXT="mailedto"/>
+        <FIELD NAME="mailedto" TYPE="char" LENGTH="100" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" PREVIOUS="user" NEXT="timecreated"/>
+        <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="true" SEQUENCE="false" PREVIOUS="mailedto" NEXT="timeused"/>
+        <FIELD NAME="timeused" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="true" SEQUENCE="false" PREVIOUS="timecreated"/>
       </FIELDS>
       <KEYS>
         <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
