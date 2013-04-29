@@ -22,5 +22,5 @@
  * @copyright 2013 eLeDia GmbH {@link http://www.eledia.de}
  * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-$plugin->version = '2010112400';
-$plugin->dependencies = array('enrol_elediamultikeys' => 2010090501);
+$plugin->version = '2013042900';
+$plugin->dependencies = array('enrol_elediamultikeys' => 2013042900);
