@@ -18,7 +18,7 @@
  *
  *
  * @package block
- * @category eledia_generate_multikeys
+ * @category eledia_multikeys
  * @copyright 2013 eLeDia GmbH {@link http://www.eledia.de}
  * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -30,8 +30,8 @@ $string['choose_length'] = 'Länge der Kurscodes (Anzahl Zeichen)';
 $string['choose_mail'] = 'E-Mail (Empfänger)';
 $string['course_notuses_multikeys'] = 'Der angegebene Kurs verwendet nicht das Einschreibeverfahren \"Kurscode Einschreibung\"';
 
-$string['eledia_generate_multikeys:addinstance'] = 'Füge Kursschlüssel Block hinzu';
-$string['eledia_generate_multikeys:view'] = 'Verwende Kursschlüssel Block';
+$string['eledia_multikeys:addinstance'] = 'Füge Kursschlüssel Block hinzu';
+$string['eledia_multikeys:view'] = 'Verwende Kursschlüssel Block';
 $string['email_send'] = 'Die Kurscodes wurden an die angegebene E-Mail-Adresse versandt';
 $string['email_enrolkeys_subject'] = 'Ihre Kurscodes';
 $string['email_enrolkeys_message'] = 'Guten Tag {$a->firstname},

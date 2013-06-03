@@ -18,7 +18,7 @@
  *
  *
  * @package block
- * @category eledia_generate_multikeys
+ * @category eledia_multikeys
  * @copyright 2013 eLeDia GmbH {@link http://www.eledia.de}
  * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -98,10 +98,10 @@ class eledia_multikeys_service {
 
         $data->link = $CFG->wwwroot;
 
-        $subject = get_string('email_enrolkeys_subject', 'block_eledia_generate_multikeys');
+        $subject = get_string('email_enrolkeys_subject', 'block_eledia_multikeys');
 
-        $message     = get_string('email_enrolkeys_message', 'block_eledia_generate_multikeys', $data);
-        $messagehtml = text_to_html(get_string('email_enrolkeys_message', 'block_eledia_generate_multikeys',
+        $message     = get_string('email_enrolkeys_message', 'block_eledia_multikeys', $data);
+        $messagehtml = text_to_html(get_string('email_enrolkeys_message', 'block_eledia_multikeys',
                 $data), false, false, true);
 
         $attachedfilename = 'keylist_course_'.$course->id.'.csv';
@@ -122,7 +122,7 @@ class eledia_multikeys_service {
         $length = $formdata->length;
         $prefix = trim($formdata->prefix);
 
-        $keystable = $DB->get_records('block_eledia_generate_multikeys', array('user' => null));
+        $keystable = $DB->get_records('block_eledia_multikeys', array('user' => null));
         $oldkeys = array();
         if ($keystable) {
             foreach ($keystable as $keyraw) {
@@ -148,7 +148,7 @@ class eledia_multikeys_service {
             $newkeyobj->user = null;
             $newkeyobj->mailedto = $mail;
             $newkeyobj->timecreated = time();
-            $DB->insert_record('block_eledia_generate_multikeys', $newkeyobj);
+            $DB->insert_record('block_eledia_multikeys', $newkeyobj);
         }
 
         if (count($newkeys) > 0) {

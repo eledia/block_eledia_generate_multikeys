@@ -29,20 +29,20 @@
  * @param int $oldversion
  * @param object $block
  */
-function xmldb_block_eledia_generate_multikeys_upgrade($oldversion) {
+function xmldb_block_eledia_multikeys_upgrade($oldversion) {
     global $DB;
     $dbman = $DB->get_manager();
 
     if ($oldversion < 2013042900) {
 
-        // Define table eledia_multikeys_keys to be renamed to block_eledia_generate_multikeys
+        // Define table eledia_multikeys_keys to be renamed to block_eledia_multikeys
         $table = new xmldb_table('eledia_multikeys_keys');
 
         // Launch rename table for eledia_multikeys_keys
-        $dbman->rename_table($table, 'block_eledia_generate_multikeys');
+        $dbman->rename_table($table, 'block_eledia_multikeys');
 
-        // block_eledia_generate_multikeys savepoint reached
-        upgrade_block_savepoint(true, 2013042900, 'eledia_generate_multikeys');
+        // block_eledia_multikeys savepoint reached
+        upgrade_block_savepoint(true, 2013042900, 'eledia_multikeys');
 
     }
 

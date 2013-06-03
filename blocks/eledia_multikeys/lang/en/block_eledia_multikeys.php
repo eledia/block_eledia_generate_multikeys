@@ -18,7 +18,7 @@
  *
  *
  * @package block
- * @category eledia_generate_multikeys
+ * @category eledia_multikeys
  * @copyright 2013 eLeDia GmbH {@link http://www.eledia.de}
  * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -30,8 +30,8 @@ $string['choose_length'] = 'Length of keys to create (number of signs)';
 $string['choose_mail'] = 'The mail address the keys are sent to';
 $string['course_notuses_multikeys'] = 'Choosen course does not use multikey enrol';
 
-$string['eledia_generate_multikeys:addinstance'] = 'Add generate multikeys block';
-$string['eledia_generate_multikeys:view'] = 'Use generate multikeys block';
+$string['eledia_multikeys:addinstance'] = 'Add generate multikeys block';
+$string['eledia_multikeys:view'] = 'Use generate multikeys block';
 $string['email_send'] = 'The new keys were sent to the given mail address';
 $string['email_enrolkeys_subject'] = 'Your enrollment keys';
 $string['email_enrolkeys_message'] = 'Hello {$a->firstname},
