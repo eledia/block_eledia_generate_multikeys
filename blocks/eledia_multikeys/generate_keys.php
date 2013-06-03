@@ -18,7 +18,7 @@
  *
  *
  * @package block
- * @category eledia_generate_multikeys
+ * @category eledia_multikeys
  * @copyright 2013 eLeDia GmbH {@link http://www.eledia.de}
  * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -31,7 +31,7 @@ $action = optional_param('action', false, PARAM_ALPHA);
 $instance = required_param('instance', PARAM_INT);
 
 require_login();
-require_capability('block/eledia_generate_multikeys:view', context_block::instance($instance));
+require_capability('block/eledia_multikeys:view', context_block::instance($instance));
 
 $myurl = new moodle_url($FULLME);
 // $myurl->remove_params();
@@ -51,7 +51,7 @@ $courses = $DB->get_records_sql($sql);
 
 // Build the courselist for the formular.
 $courselist = array();
-$strchoose = get_string('choose_course', 'block_eledia_generate_multikeys');
+$strchoose = get_string('choose_course', 'block_eledia_multikeys');
 $courselist[0] = $strchoose;
 foreach ($courses as $course) {
     if ($course->id == SITEID) {
@@ -80,11 +80,14 @@ if ($formdata = $mform->get_data()) {
             $myurl->params(array('action' => 'continue', 'instance' => $instance));
             $SESSION->coursekeys = new stdClass();
             $SESSION->coursekeys->formdata = $formdata;
-            redirect($myurl, get_string('email_send', 'block_eledia_generate_multikeys'), 3);
+            redirect($myurl, get_string('email_send', 'block_eledia_multikeys'), 3);
             die;
-        }
+        } else {
+            print_error('error on sending the email');
+	}
+    } else {
+        print_error('error on creating keylist');
     }
-    print_error('error on sending the email');
     exit;
 }
 
@@ -101,7 +104,7 @@ if ($action == 'continue') {
 
 $PAGE->navbar->add('multiplekeys');
 
-$header = get_string('generate_keys', 'block_eledia_generate_multikeys');
+$header = get_string('generate_keys', 'block_eledia_multikeys');
 $PAGE->set_heading($header);
 
 echo $OUTPUT->header();

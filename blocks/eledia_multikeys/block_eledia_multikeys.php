@@ -18,14 +18,14 @@
  *
  *
  * @package block
- * @category eledia_generate_multikeys
+ * @category eledia_multikeys
  * @copyright 2013 eLeDia GmbH {@link http://www.eledia.de}
  * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class block_eledia_generate_multikeys extends block_base {
+class block_eledia_multikeys extends block_base {
 
     public function init() {
-        $this->title   = get_string('title', 'block_eledia_generate_multikeys');
+        $this->title   = get_string('title', 'block_eledia_multikeys');
         $this->version = 20101118;// Format yyyymmddvv.
     }
 
@@ -61,12 +61,12 @@ class block_eledia_generate_multikeys extends block_base {
         $this->content->text = '';
         $this->content->footer = '';
 
-        if (has_capability('block/eledia_generate_multikeys:view', context_block::instance($this->instance->id))) {
+        if (has_capability('block/eledia_multikeys:view', context_block::instance($this->instance->id))) {
             $this->content->text .= '<ul>';
             $this->content->text .= '<li>';
-            $this->content->text .= '<a href="'.$CFG->wwwroot.'/blocks/eledia_generate_multikeys/generate_keys.php?instance='.
+            $this->content->text .= '<a href="'.$CFG->wwwroot.'/blocks/eledia_multikeys/generate_keys.php?instance='.
                     $this->instance->id.'" >';
-            $this->content->text .= get_string('generate_keys', 'block_eledia_generate_multikeys');
+            $this->content->text .= get_string('generate_keys', 'block_eledia_multikeys');
             $this->content->text .= '</a>';
             $this->content->text .= '</li>';
             $this->content->text .= '</ul>';

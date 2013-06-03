@@ -18,9 +18,26 @@
  *
  *
  * @package block
- * @category eledia_generate_multikeys
+ * @category eledia_multikeys
  * @copyright 2013 eLeDia GmbH {@link http://www.eledia.de}
  * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-$plugin->version = '2013042900';
-$plugin->dependencies = array('enrol_elediamultikeys' => 2013042900);
+defined('MOODLE_INTERNAL') || die();
+
+$capabilities = array(
+
+    'block/eledia_multikeys:addinstance' => array(
+        'captype' => 'write',
+        'contextlevel' => CONTEXT_BLOCK,
+        'clonepermissionsfrom' => 'moodle/site:manageblocks'
+    ),
+        'block/eledia_multikeys:view' => array(
+        'captype' => 'write',
+        'contextlevel' => CONTEXT_BLOCK,
+        'archetypes' => array(
+            'manger' => CAP_ALLOW,
+        ),
+
+        'clonepermissionsfrom' => 'moodle/site:manageblocks'
+    ),
+);

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<XMLDB PATH="blocks/block_eledia_generate_multikeys/db" VERSION="2010120801" COMMENT="XMLDB file for Moodle blocks/block_eledia_generate_multikeys"
+<XMLDB PATH="blocks/block_eledia_multikeys/db" VERSION="2010120801" COMMENT="XMLDB file for Moodle blocks/block_eledia_multikeys"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd"
 >
   <TABLES>
-    <TABLE NAME="block_eledia_generate_multikeys" COMMENT="block_eledia_generate_multikeys table retrofitted from MySQL">
+    <TABLE NAME="block_eledia_multikeys" COMMENT="block_eledia_multikeys table retrofitted from MySQL">
       <FIELDS>
         <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true" NEXT="course"/>
         <FIELD NAME="course" TYPE="char" LENGTH="100" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" PREVIOUS="id" NEXT="code"/>
