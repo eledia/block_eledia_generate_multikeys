@@ -80,14 +80,14 @@ class eledia_multikeys_service {
         global $CFG;
 
         $user = new stdClass();
-
+        $user->id          = guest_user()->id;
         $user->lang        = current_language();
         $user->firstaccess = time();
         $user->mnethostid  = $CFG->mnet_localhost_id;
-        $user->email        = $adress;
+        $user->email       = $adress;
 
         $site = get_site();
-        $supportuser = generate_email_supportuser();
+        $supportuser = core_user::get_support_user();
 
         $data = new stdClass();
         $data->firstname = fullname($user);// String für Anrede firmenname?
