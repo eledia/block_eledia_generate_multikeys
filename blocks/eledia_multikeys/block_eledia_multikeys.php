@@ -30,7 +30,7 @@ class block_eledia_multikeys extends block_base {
     }
 
     public function applicable_formats() {
-        return array('site'=>true);
+        return array('site' => true, 'my' => true);
     }
 
     /**
