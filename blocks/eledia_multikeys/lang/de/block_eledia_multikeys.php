@@ -54,6 +54,7 @@ Bei Problemen wenden Sie sich bitte an die Administrator/innen der Website.
 
 Viel Erfolg!
 {$a->admin}';
+$string['enrol_duration'] = 'Einschreibedauer in Tagen';
 
 $string['generate_keys'] = 'Generiere Kurscodes';
 $string['generate_header'] = 'Parameter für die Erzeugung der Kurscodes';

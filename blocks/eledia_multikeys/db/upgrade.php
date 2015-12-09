@@ -46,5 +46,36 @@ function xmldb_block_eledia_multikeys_upgrade($oldversion) {
 
     }
 
+    if ($oldversion < 2015120901) {
+
+        // Switch courseid to enrol id for all keys
+        $keys = $DB->get_records('block_eledia_multikeys');
+        foreach ($keys as $key) {
+            $enrol = $DB->get_record('enrol', array('enrol' => 'elediamultikeys', 'courseid' => $key->course));
+            if (empty($enrol)) {
+                $DB->set_field('block_eledia_multikeys','course', 0, array('id' => $key->id));
+            } else {
+                $DB->set_field('block_eledia_multikeys','course', $enrol->id, array('id' => $key->id));
+            }
+        }
+
+        // Define table eledia_multikeys_keys to be renamed to block_eledia_multikeys
+        $table = new xmldb_table('block_eledia_multikeys');
+        $field = new xmldb_field('course', XMLDB_TYPE_CHAR);
+
+        // Launch rename table for eledia_multikeys_keys
+        $dbman->rename_field($table, $field, 'enrolid');
+
+        $field2 = new xmldb_field('enrol_duration', XMLDB_TYPE_CHAR, '100', null, XMLDB_NOTNULL, null, null, 'mailedto');
+
+        // Conditionally launch add field enrol_duration.
+        if (!$dbman->field_exists($table, $field2)) {
+            $dbman->add_field($table, $field2);
+        }
+
+        // block_eledia_multikeys savepoint reached
+        upgrade_block_savepoint(true, 2015120901, 'eledia_multikeys');
+    }
+
     return true;
 }
