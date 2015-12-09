@@ -55,6 +55,7 @@ line at the top of your web browser window.
 
 If you need help, please contact the site administrator,
 {$a->admin}';
+$string['enrol_duration'] = 'Enrol duration in days';
 
 $string['generate_keys'] = 'Generate keys';
 $string['generate_header'] = 'Generate keys parameters';

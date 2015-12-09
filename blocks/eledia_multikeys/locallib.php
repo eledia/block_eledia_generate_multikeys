@@ -76,8 +76,8 @@ class eledia_multikeys_service {
         return $newkey;
     }
 
-    public function send_enrolkeys_email($adress, $keylist, $course, $filename) {
-        global $CFG;
+    public function send_enrolkeys_email($adress, $keylist, $enrol, $filename) {
+        global $CFG, $DB;
 
         $user = new stdClass();
         $user->id          = guest_user()->id;
@@ -93,7 +93,8 @@ class eledia_multikeys_service {
         $data->firstname = fullname($user);// String für Anrede firmenname?
         $data->sitename = format_string($site->fullname);
         $data->admin = generate_email_signoff();
-        $data->course = $course->fullname.' ('.$course->shortname.')';
+        $course = $DB->get_record('course', array('id' => $enrol->courseid));
+        $data->course = $course->fullname;
         $data->keylist = $keylist;
 
         $data->link = $CFG->wwwroot;
@@ -104,7 +105,7 @@ class eledia_multikeys_service {
         $messagehtml = text_to_html(get_string('email_enrolkeys_message', 'block_eledia_multikeys',
                 $data), false, false, true);
 
-        $attachedfilename = 'keylist_course_'.$course->id.'.csv';
+        $attachedfilename = 'keylist_course_'.$enrol->id.'.csv';
         $user->mailformat = 1;  // Always send HTML version as well.
 
         $return = email_to_user($user, $supportuser, $subject, $message, $messagehtml, $filename, $attachedfilename);
@@ -116,7 +117,7 @@ class eledia_multikeys_service {
     public function create_keylist($formdata) {
         global $DB;
 
-        $courseid = $formdata->course;
+        $enrolid = $formdata->enrol_instance;// enrol instance id in this case.
         $count = $formdata->count;
         $mail = $formdata->mail;
         $length = $formdata->length;
@@ -143,11 +144,14 @@ class eledia_multikeys_service {
 
             $newkeys[] = $newkey;
             $newkeyobj = new stdClass();
-            $newkeyobj->course = $courseid;
+            $newkeyobj->enrolid = $enrolid;
             $newkeyobj->code = $newkey;
             $newkeyobj->user = null;
-            $newkeyobj->mailedto = $mail;
             $newkeyobj->timecreated = time();
+            $newkeyobj->mailedto = $mail;
+            if (!empty($formdata->enrol_duration)) {
+               $newkeyobj->enrol_duration = $formdata->enrol_duration;
+            }
             $DB->insert_record('block_eledia_multikeys', $newkeyobj);
         }
 
