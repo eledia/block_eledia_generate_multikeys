@@ -33,17 +33,21 @@ class generate_keys_form extends moodleform {
     protected function definition() {
 
         $mform =& $this->_form;
-        $courselist = $this->_customdata['courselist'];
+        $enrol_instances = $this->_customdata['enrol_instances'];
         $instance = $this->_customdata['instance'];
 
         $mform->addElement('hidden', 'instance', $instance);
         $mform->setType('instance', PARAM_INT);
-        
+
         $mform->addElement('header', '', get_string('generate_header', 'block_eledia_multikeys'), 'eledia_generate_keys');
 
-        $mform->addElement('select', 'course', get_string('course'), $courselist);
-        $mform->addRule('course', null, 'required', null, 'client');
-        $mform->setType('course', PARAM_INT);
+        $mform->addElement('select', 'enrol_instance', get_string('course'), $enrol_instances);
+        $mform->addRule('enrol_instance', null, 'required', null, 'client');
+        $mform->setType('enrol_instance', PARAM_INT);
+
+        $mform->addElement('text', 'enrol_duration', get_string('enrol_duration', 'block_eledia_multikeys'),
+                'maxlength="10" size="5"');
+        $mform->setType('enrol_duration', PARAM_INT);
 
         $mform->addElement('text', 'count', get_string('choose_count', 'block_eledia_multikeys'),
                 'maxlength="10" size="6"');
@@ -63,6 +67,9 @@ class generate_keys_form extends moodleform {
         $mform->addElement('text', 'prefix',  get_string('prefix', 'block_eledia_multikeys'), 'maxlength="10" size="6"');
         $mform->setType('prefix', PARAM_ALPHANUMEXT);
 
+        if(optional_param('saved', false, PARAM_BOOL)) {
+            $mform->addElement('static', 'save', '', get_string('email_send', 'block_eledia_multikeys'));
+        }
         $this->add_action_buttons(true, get_string('generate_keys', 'block_eledia_multikeys'));
     }
 
@@ -71,11 +78,11 @@ class generate_keys_form extends moodleform {
 
         $errors = parent::validation($data, $files);
 
-        if (empty($data['course'])) {
-            $errors['course'] = get_string('missingcourse', 'block_eledia_multikeys');
+        if (empty($data['enrol_instance'])) {
+            $errors['enrol_instance'] = get_string('missingcourse', 'block_eledia_multikeys');
         } else {
-            if ( !$DB->get_records('enrol', array('courseid' => $data['course'], 'enrol' => 'elediamultikeys') )) {
-                $errors['course'] = get_string('course_notuses_multikeys', 'block_eledia_multikeys');
+            if ( !$DB->get_records('enrol', array('id' => $data['enrol_instance']))) {
+                $errors['enrol_instance'] = get_string('course_notuses_multikeys', 'block_eledia_multikeys');
             }
         }
 
