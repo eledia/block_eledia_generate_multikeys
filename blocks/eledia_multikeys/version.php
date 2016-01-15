@@ -23,3 +23,4 @@
  * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 $plugin->version = '2015120901';
+$plugin->component= 'block_eledia_multikeys';
