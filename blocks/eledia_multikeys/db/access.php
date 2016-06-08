@@ -31,7 +31,12 @@ $capabilities = array(
         'contextlevel' => CONTEXT_BLOCK,
         'clonepermissionsfrom' => 'moodle/site:manageblocks'
     ),
-        'block/eledia_multikeys:view' => array(
+    'block/eledia_multikeys:myaddinstance' => array(
+        'captype' => 'write',
+        'contextlevel' => CONTEXT_BLOCK,
+        'clonepermissionsfrom' => 'moodle/site:manageblocks'
+    ),
+    'block/eledia_multikeys:view' => array(
         'captype' => 'write',
         'contextlevel' => CONTEXT_BLOCK,
         'archetypes' => array(

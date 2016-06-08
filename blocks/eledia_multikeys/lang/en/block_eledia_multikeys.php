@@ -31,6 +31,7 @@ $string['choose_mail'] = 'The mail address the keys are sent to';
 $string['course_notuses_multikeys'] = 'Choosen course does not use multikey enrol';
 
 $string['eledia_multikeys:addinstance'] = 'Add generate multikeys block';
+$string['eledia_multikeys:myaddinstance'] = 'Add generate multikeys block';
 $string['eledia_multikeys:view'] = 'Use generate multikeys block';
 $string['email_send'] = 'The new keys were sent to the given mail address';
 $string['email_enrolkeys_subject'] = 'Your enrollment keys';

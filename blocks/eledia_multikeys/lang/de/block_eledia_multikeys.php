@@ -31,6 +31,7 @@ $string['choose_mail'] = 'E-Mail (Empfänger)';
 $string['course_notuses_multikeys'] = 'Der angegebene Kurs verwendet nicht das Einschreibeverfahren \"Kurscode Einschreibung\"';
 
 $string['eledia_multikeys:addinstance'] = 'Füge Kursschlüssel Block hinzu';
+$string['eledia_multikeys:myaddinstance'] = 'Füge Kursschlüssel Block hinzu';
 $string['eledia_multikeys:view'] = 'Verwende Kursschlüssel Block';
 $string['email_send'] = 'Die Kurscodes wurden an die angegebene E-Mail-Adresse versandt';
 $string['email_enrolkeys_subject'] = 'Ihre Kurscodes';
