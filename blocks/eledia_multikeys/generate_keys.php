@@ -44,7 +44,7 @@ $sql = "SELECT e.*, c.fullname
     FROM {course} c, {enrol} e
     WHERE e.courseid = c.id
     AND enrol = 'elediamultikeys'
-    GROUP BY e.id
+    GROUP BY e.id, c.fullname
     ORDER BY e.courseid ASC";
 $enrol = $DB->get_records_sql($sql);
 
