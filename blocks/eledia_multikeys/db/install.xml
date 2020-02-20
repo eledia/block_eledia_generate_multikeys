@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<XMLDB PATH="blocks/block_eledia_multikeys/db" VERSION="2010120801" COMMENT="XMLDB file for Moodle blocks/block_eledia_multikeys"
+<XMLDB PATH="blocks/eledia_multikeys/db" VERSION="2010120801" COMMENT="XMLDB file for Moodle blocks/block_eledia_multikeys"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd"
 >

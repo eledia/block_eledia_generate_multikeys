@@ -85,6 +85,7 @@ class eledia_multikeys_service {
         $user->firstaccess = time();
         $user->mnethostid  = $CFG->mnet_localhost_id;
         $user->email       = $adress;
+        $user->username       = get_string('pluginname', 'block_eledia_multikeys');
 
         $site = get_site();
         $supportuser = core_user::get_support_user();

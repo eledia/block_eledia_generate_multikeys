@@ -70,8 +70,18 @@ $string['missingmail'] = 'Mail address is missing';
 
 $string['pluginname'] = 'One time course key enrollment';
 $string['prefix'] = 'Key prefix';
+$string['privacy:metadata:database:block_eledia_multikeys'] = 'Describe the action.';
+$string['privacy:metadata:database:block_eledia_multikeys:enrolid'] = 'The ID of the user enrolment.';
+$string['privacy:metadata:database:block_eledia_multikeys:code'] = 'The used key.';
+$string['privacy:metadata:database:block_eledia_multikeys:user'] = 'The user id.';
+$string['privacy:metadata:database:block_eledia_multikeys:mailedto'] = 'The email the key was sent to original.';
+$string['privacy:metadata:database:block_eledia_multikeys:enrol_duration'] = 'Enrolment time limit.';
+$string['privacy:metadata:database:block_eledia_multikeys:timecreated'] = 'The timestamp when the kye was created.';
+$string['privacy:metadata:database:block_eledia_multikeys:timeused'] = 'The timestamp when the kye was used.';
 
 $string['title'] = 'One time course key enrollment';
+
+$string['userdata'] = 'Stores the enrolment keys Information for the user.';
 
 $string['wrong_mail_format'] = 'The mail address you used is not a valid mail address';
 $string['wrong_number'] = 'Wrong number';

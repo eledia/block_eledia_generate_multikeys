@@ -19,8 +19,8 @@
  *
  * @package block
  * @category eledia_multikeys
- * @copyright 2013 eLeDia GmbH {@link http://www.eledia.de}
+ * @copyright 2020 eLeDia GmbH {@link http://www.eledia.de}
  * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-$plugin->version = '2019040200';
+$plugin->version = '2020021700';
 $plugin->component= 'block_eledia_multikeys';

@@ -69,8 +69,18 @@ $string['missingmail'] = 'E-Mail Adresse fehlt';
 
 $string['pluginname'] = 'eLeDia Schlüsseleinschreibung';
 $string['prefix'] = 'Der Kurscode-Präfix';
+$string['privacy:metadata:database:block_eledia_multikeys'] = 'Describe the action.';
+$string['privacy:metadata:database:block_eledia_multikeys:enrolid'] = 'The ID of the user enrolment.';
+$string['privacy:metadata:database:eledia_multikeys_action:code'] = 'The used key.';
+$string['privacy:metadata:database:eledia_multikeys_action:user'] = 'The user id.';
+$string['privacy:metadata:database:eledia_multikeys_action:mailedto'] = 'The email the key was sent to original.';
+$string['privacy:metadata:database:eledia_multikeys_action:enrol_duration'] = 'Enrolment time limit.';
+$string['privacy:metadata:database:eledia_multikeys_action:timecreated'] = 'The timestamp when the kye was created.';
+$string['privacy:metadata:database:eledia_multikeys_action:timeused'] = 'The timestamp when the kye was used.';
 
 $string['title'] = 'Einschreibung mit Kurscode';
+
+$string['userdata'] = 'Stores the enrolment keys Information for the user.';
 
 $string['wrong_mail_format'] = 'Die von Ihnen angegebene E-Mail Adresse ist keine gültige E-Mail-Adresse';
 $string['wrong_number'] = 'Falscher Zahlwert';
