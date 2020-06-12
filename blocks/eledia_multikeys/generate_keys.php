@@ -76,7 +76,10 @@ if ($formdata = $mform->get_data()) {
         $csvfile = $keyservice->create_csv($newkeys);
         $keysoutput = implode("\n", $newkeys);
         if ($keyservice->send_enrolkeys_email($formdata->mail, $keysoutput, $enrol[$formdata->enrol_instance], $csvfile)) {
-            $myurl->params(array('action' => 'continue', 'instance' => $instance, 'saved' => true));
+            $myurl->params(array('action' => 'continue',
+                'instance' => $instance,
+                'saved' => true,
+                'enrol_instance' => $formdata->enrol_instance));
             $SESSION->coursekeys = new stdClass();
             $SESSION->coursekeys->formdata = $formdata;
             redirect($myurl, get_string('email_send', 'block_eledia_multikeys'), 3);

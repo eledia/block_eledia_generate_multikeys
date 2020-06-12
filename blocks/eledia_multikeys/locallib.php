@@ -150,6 +150,7 @@ class eledia_multikeys_service {
             $newkeyobj->user = null;
             $newkeyobj->timecreated = time();
             $newkeyobj->mailedto = $mail;
+            $newkeyobj->groupid = $formdata->course_group;
             if (!empty($formdata->enrol_duration)) {
                $newkeyobj->enrol_duration = $formdata->enrol_duration;
             }

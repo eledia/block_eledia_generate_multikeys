@@ -26,9 +26,11 @@ $string['back'] = 'Zurück';
 
 $string['choose_count'] = 'Anzahl Kurscodes';
 $string['choose_course'] = 'Kurs wählen';
+$string['choose_group'] = 'Gruppe wählen';
 $string['choose_length'] = 'Länge der Kurscodes (Anzahl Zeichen)';
 $string['choose_mail'] = 'E-Mail (Empfänger)';
 $string['course_notuses_multikeys'] = 'Der angegebene Kurs verwendet nicht das Einschreibeverfahren \"Kurscode Einschreibung\"';
+$string['course_group'] = 'Kurs Gruppe';
 
 $string['eledia_multikeys:addinstance'] = 'Füge Kursschlüssel Block hinzu';
 $string['eledia_multikeys:myaddinstance'] = 'Füge Kursschlüssel Block hinzu';
@@ -75,6 +77,7 @@ $string['privacy:metadata:database:eledia_multikeys_action:code'] = 'The used ke
 $string['privacy:metadata:database:eledia_multikeys_action:user'] = 'The user id.';
 $string['privacy:metadata:database:eledia_multikeys_action:mailedto'] = 'The email the key was sent to original.';
 $string['privacy:metadata:database:eledia_multikeys_action:enrol_duration'] = 'Enrolment time limit.';
+$string['privacy:metadata:database:eledia_multikeys_action:groupid'] = 'Course group.';
 $string['privacy:metadata:database:eledia_multikeys_action:timecreated'] = 'The timestamp when the kye was created.';
 $string['privacy:metadata:database:eledia_multikeys_action:timeused'] = 'The timestamp when the kye was used.';
 

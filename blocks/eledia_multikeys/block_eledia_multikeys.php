@@ -26,7 +26,7 @@ class block_eledia_multikeys extends block_base {
 
     public function init() {
         $this->title   = get_string('title', 'block_eledia_multikeys');
-        $this->version = 20101118;// Format yyyymmddvv.
+        $this->version = 2020061200;// Format yyyymmddvv.
     }
 
     public function applicable_formats() {

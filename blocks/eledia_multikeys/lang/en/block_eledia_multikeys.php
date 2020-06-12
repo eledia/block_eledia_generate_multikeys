@@ -26,9 +26,11 @@ $string['back'] = 'Back';
 
 $string['choose_count'] = 'Number of keys to create';
 $string['choose_course'] = 'Choose course';
+$string['choose_group'] = 'Choose group';
 $string['choose_length'] = 'Length of keys to create (number of signs)';
 $string['choose_mail'] = 'The mail address the keys are sent to';
 $string['course_notuses_multikeys'] = 'Choosen course does not use multikey enrol';
+$string['course_group'] = 'course group';
 
 $string['eledia_multikeys:addinstance'] = 'Add generate multikeys block';
 $string['eledia_multikeys:myaddinstance'] = 'Add generate multikeys block';

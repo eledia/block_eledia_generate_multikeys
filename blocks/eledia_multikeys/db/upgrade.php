@@ -77,5 +77,20 @@ function xmldb_block_eledia_multikeys_upgrade($oldversion) {
         upgrade_block_savepoint(true, 2015120901, 'eledia_multikeys');
     }
 
+    if ($oldversion < 2020061200) {
+
+        // Define field group to be added to block_eledia_multikeys.
+        $table = new xmldb_table('block_eledia_multikeys');
+        $field = new xmldb_field('groupid', XMLDB_TYPE_INTEGER, '10', null, null, null, null, 'enrol_duration');
+
+        // Conditionally launch add field group.
+        if (!$dbman->field_exists($table, $field)) {
+            $dbman->add_field($table, $field);
+        }
+
+        // Block_eledia_multikeys savepoint reached.
+        upgrade_block_savepoint(true, 2020061200, 'eledia_multikeys');
+    }
+
     return true;
 }

@@ -31,6 +31,7 @@ require_once($CFG->libdir.'/formslib.php');
 class generate_keys_form extends moodleform {
 
     protected function definition() {
+        global $DB;
 
         $mform =& $this->_form;
         $enrol_instances = $this->_customdata['enrol_instances'];
@@ -41,9 +42,29 @@ class generate_keys_form extends moodleform {
 
         $mform->addElement('header', '', get_string('generate_header', 'block_eledia_multikeys'), 'eledia_generate_keys');
 
-        $mform->addElement('select', 'enrol_instance', get_string('course'), $enrol_instances);
+        $attributes = 'onChange="M.core_formchangechecker.set_form_submitted(); this.form.submit();"';
+        $mform->addElement('select', 'enrol_instance', get_string('course'), $enrol_instances, $attributes);
         $mform->addRule('enrol_instance', null, 'required', null, 'client');
         $mform->setType('enrol_instance', PARAM_INT);
+
+        $choosen_instance = optional_param('enrol_instance', 0, PARAM_INT);
+        $course_groups = array();
+        $strchoose = get_string('choose_group', 'block_eledia_multikeys');
+        $course_groups[0] = $strchoose;
+        if (!empty($choosen_instance)) {
+            $enrol = $DB->get_record('enrol', array('id' => $choosen_instance));
+            $groups = groups_get_all_groups($enrol->courseid);
+            if (!empty($groups)) {
+                foreach ($groups as $group) {
+                    $course_groups[$group->id] = $group->name;
+                }
+            }
+        }
+
+        $mform->addElement('select', 'course_group', get_string('course_group', 'block_eledia_multikeys'), $course_groups);
+        $mform->addRule('course_group', null, 'required', null, 'client');
+        $mform->setType('course_group', PARAM_RAW);
+
 
         $mform->addElement('text', 'enrol_duration', get_string('enrol_duration', 'block_eledia_multikeys'),
                 'maxlength="10" size="5"');

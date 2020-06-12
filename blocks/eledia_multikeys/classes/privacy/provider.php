@@ -63,6 +63,7 @@ class provider implements
             'user' => 'privacy:metadata:database:block_eledia_multikeys:user',
             'mailedto' => 'privacy:metadata:database:block_eledia_multikeys:mailedto',
             'enrol_duration' => 'privacy:metadata:database:block_eledia_multikeys:enrol_duration',
+            'groupid' => 'privacy:metadata:database:block_eledia_multikeys:groupid',
             'timecreated' => 'privacy:metadata:database:block_eledia_multikeys:timecreated',
             'timeused' => 'privacy:metadata:database:block_eledia_multikeys:timeused',
         ], 'privacy:metadata:database:block_eledia_multikeys');
