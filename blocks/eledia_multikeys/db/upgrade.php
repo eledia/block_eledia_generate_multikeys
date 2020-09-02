@@ -28,6 +28,7 @@
  *
  * @param int $oldversion
  * @param object $block
+ * @return bool
  */
 function xmldb_block_eledia_multikeys_upgrade($oldversion) {
     global $DB;
@@ -92,5 +93,17 @@ function xmldb_block_eledia_multikeys_upgrade($oldversion) {
         upgrade_block_savepoint(true, 2020061200, 'eledia_multikeys');
     }
 
+    if ($oldversion < 2020090200) {
+
+        // Rename field userid on table block_eledia_multikeys to userid.
+        $table = new xmldb_table('block_eledia_multikeys');
+        $field = new xmldb_field('user', XMLDB_TYPE_INTEGER, '10', null, null, null, null, 'code');
+
+        // Launch rename field user.
+        $dbman->rename_field($table, $field, 'userid');
+
+        // Eledia_multikeys savepoint reached.
+        upgrade_block_savepoint(true, 2020090200, 'eledia_multikeys');
+    }
     return true;
 }

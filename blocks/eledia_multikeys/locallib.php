@@ -124,7 +124,7 @@ class eledia_multikeys_service {
         $length = $formdata->length;
         $prefix = trim($formdata->prefix);
 
-        $keystable = $DB->get_records('block_eledia_multikeys', array('user' => null));
+        $keystable = $DB->get_records('block_eledia_multikeys', array('userid' => null));
         $oldkeys = array();
         if ($keystable) {
             foreach ($keystable as $keyraw) {
@@ -147,7 +147,7 @@ class eledia_multikeys_service {
             $newkeyobj = new stdClass();
             $newkeyobj->enrolid = $enrolid;
             $newkeyobj->code = $newkey;
-            $newkeyobj->user = null;
+            $newkeyobj->userid = null;
             $newkeyobj->timecreated = time();
             $newkeyobj->mailedto = $mail;
             $newkeyobj->groupid = $formdata->course_group;

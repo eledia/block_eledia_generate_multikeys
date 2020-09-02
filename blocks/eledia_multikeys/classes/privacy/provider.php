@@ -60,7 +60,7 @@ class provider implements
         $collection->add_database_table('block_eledia_multikeys', [
             'enrolid' => 'privacy:metadata:database:block_eledia_multikeys:enrolid',
             'code' => 'privacy:metadata:database:block_eledia_multikeys:code',
-            'user' => 'privacy:metadata:database:block_eledia_multikeys:user',
+            'userid' => 'privacy:metadata:database:block_eledia_multikeys:userid',
             'mailedto' => 'privacy:metadata:database:block_eledia_multikeys:mailedto',
             'enrol_duration' => 'privacy:metadata:database:block_eledia_multikeys:enrol_duration',
             'groupid' => 'privacy:metadata:database:block_eledia_multikeys:groupid',
@@ -112,7 +112,7 @@ class provider implements
         $has_data = false;
 
         // Make the check for each table.
-        if ($DB->records_exists('block_eledia_multikeys', array('user' => $user->id))) {
+        if ($DB->records_exists('block_eledia_multikeys', array('userid' => $user->id))) {
             $has_data = true;
         }
 
@@ -136,7 +136,7 @@ class provider implements
         $user = $contextlist->get_user();
         foreach ($contextlist as $context) {
             // Get user records for table block_eledia_multikeys.
-            $userdata = $DB->get_records('block_eledia_multikeys', array('user' => $user->id));
+            $userdata = $DB->get_records('block_eledia_multikeys', array('userid' => $user->id));
             foreach ($userdata as $data) {
                 // Subcontext is used as folder for the exported data.
                 $subcontext = [
@@ -164,7 +164,7 @@ class provider implements
         }
 
         $user = $DB->get_record('user', array('id' => $context->instanceid));
-        $DB->delete_records('block_eledia_multikeys', array('user' => $user->id));
+        $DB->delete_records('block_eledia_multikeys', array('userid' => $user->id));
     }
 
     /**
@@ -181,7 +181,7 @@ class provider implements
 
         foreach ($userids as $userid) {
             $user = $DB->get_record('user', array('id' => $userid));
-            $DB->delete_records('block_eledia_multikeys', array('user' => $user->id));
+            $DB->delete_records('block_eledia_multikeys', array('userid' => $user->id));
         }
     }
 
@@ -196,6 +196,6 @@ class provider implements
         global $DB;
 
         $user = $contextlist->get_user();
-        $DB->delete_records('block_eledia_multikeys', array('user' => $user->id));
+        $DB->delete_records('block_eledia_multikeys', array('userid' => $user->id));
     }
 }

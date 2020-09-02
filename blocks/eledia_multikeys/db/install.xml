@@ -9,7 +9,7 @@
         <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true"/>
         <FIELD NAME="enrolid" TYPE="char" LENGTH="100" NOTNULL="true" UNSIGNED="true" SEQUENCE="false"/>
         <FIELD NAME="code" TYPE="char" LENGTH="100" NOTNULL="true" UNSIGNED="true" SEQUENCE="false"/>
-        <FIELD NAME="user" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="true" SEQUENCE="false"/>
+        <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="true" SEQUENCE="false"/>
         <FIELD NAME="mailedto" TYPE="char" LENGTH="100" NOTNULL="true" UNSIGNED="true" SEQUENCE="false"/>
         <FIELD NAME="enrol_duration" TYPE="char" LENGTH="100" NOTNULL="true" UNSIGNED="true" SEQUENCE="false"/>
         <FIELD NAME="groupid" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="true" SEQUENCE="false"/>
